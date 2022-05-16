@@ -1,0 +1,22 @@
+in root folder of project (to make sure it exists)
+tsc --version
+
+then, to create tsconfig.json
+tsc --init
+
+then, to set up a watch
+tsc -w
+
+Edit the tscconfig.json
+set target to es2021 <-- or whatever is latest
+set module to es2020
+sourcemap to true
+outdir to ./dist
+rootdir to ./src
+
+create html, css and js directories in dist
+create ts files in src
+
+start LiveServer from html
+
+Let the fun begin!
