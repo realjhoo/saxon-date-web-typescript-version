@@ -95,8 +95,10 @@ function getSaxonDate(metonicData: object): void {
       eval(`metonicData.MetonicTable${goldenNumber}[i].moon`)
     );
 
+    // the = was removed when the Ereyule date ran to 32 days. This may cause a future error??? 24 Dec 20222
+    //   if (i >= length - 1) {
     i++;
-    if (i >= length - 1) {
+    if (i > length - 1) {
       break;
     }
   }
