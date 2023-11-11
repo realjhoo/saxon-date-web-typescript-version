@@ -1,3 +1,21 @@
+/*
+NOTES
+RE
+Current Table = runicyear % 19
+
+Itercalary Year
+result = ((runicyear*7)+1) % 19
+     if result <= 6 year is intercalary
+     if result >6 year is normal
+     (3, +6, 8, +11, 14, +17, 19)
+     +# means 385 days, else 384
+
+
+     IDEA
+     Determine the runic year
+     GENERATE the table for that year!!!
+     Use table to find current date
+*/
 // typescript web version
 "use strict";
 
@@ -35,6 +53,7 @@ function getDayNumber(date: Date): number {
 
 // --------------------------------------------------------
 function getRunicYear(saxonMonth: string, gregorianDate: Date): number {
+  // change: add 252 to current gregorian year to get the Runic Era (RE)
   const January = 1;
   const December = 12;
   let gregorianYear = gregorianDate.getFullYear();
@@ -42,17 +61,18 @@ function getRunicYear(saxonMonth: string, gregorianDate: Date): number {
   let saxonYear = 0;
 
   if (saxonMonth === "Ereyule" && gregorianMonth === January) {
-    saxonYear = gregorianYear + 249;
-  } else if (saxonMonth === "Afteryule" && gregorianMonth === December) {
     saxonYear = gregorianYear + 251;
+  } else if (saxonMonth === "Afteryule" && gregorianMonth === December) {
+    saxonYear = gregorianYear + 253;
   } else {
-    saxonYear = gregorianYear + 250;
+    saxonYear = gregorianYear + 252;
   }
   return saxonYear;
 }
 
 // --------------------------------------------------------
 function getGoldenNumber(year: number): number {
+  // runic year mod 19 (is this doable with daynumbers???)
   return (year % 19) + 1;
 }
 
