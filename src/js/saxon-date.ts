@@ -74,7 +74,7 @@ function getRunicYear(saxonMonth: string, gregorianDate: Date): number {
 function getGoldenNumber(year: number): number {
   // gregorian year mod 19 = actual golden year
   // +5 to meet runic era golden number
-  return (year % 19) + 5;
+  return (year + 5) % 19;
 }
 
 // --------------------------------------------------------
